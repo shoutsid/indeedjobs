@@ -1,0 +1,14 @@
+
+<h1>Jobs</h1>
+<% @jobs.each do |job| %>
+	<div class="content">
+		Title: <%= job.jobtitle %> <br/>
+		Description: <%= raw job.description%> <br/>
+		Company: <%= job.company %><br/>
+		City: <%= job.city %><br/>
+		Posted at: <%= time_ago_in_words(job.posted) %><br/>
+		link: <%= link_to "Find on Indeed", job.url %>
+		jobkey: <%= job.job_key %>
+</div>
+<p/>
+<% end %>
