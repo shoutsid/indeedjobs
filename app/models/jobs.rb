@@ -2,6 +2,8 @@ require 'indeed'
 require 'open-uri'
 class Jobs < ActiveRecord::Base
   attr_accessible :city, :company, :description, :expired, :jobtitle, :posted, :radius, :url, :job_key
+
+  scope :recent, lambda{ where(['posted > ?', 7.days.ago]).order('posted desc') }
   
   def self.tinyurl(url)
     tinyurl = open('http://tinyurl.com/api-create.php?url=' + url).read

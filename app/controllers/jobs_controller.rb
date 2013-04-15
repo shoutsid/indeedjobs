@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
   def index
-    @jobs = Jobs.all(order: "posted desc") 
+    @jobs = Jobs.recent.order('posted desc')
   end
 end

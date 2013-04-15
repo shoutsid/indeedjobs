@@ -1,6 +1,5 @@
-require 'net/http'
+require 'rest_client'
 require 'json'
-
 module Indeed
     
     class IndeedClientError < StandardError
@@ -16,8 +15,8 @@ module Indeed
             :required_fields => [[:q, :l, :co]],
         }
 
-        def initialize(publisher_id, version = "2")
-            @publisher_id = publisher_id
+        def initialize(publisher, version = "2")
+            @publisher = publisher
             @version = version
         end
 
@@ -29,8 +28,8 @@ module Indeed
 
         def process_request(endpoint, args)
             format = args.fetch(:format, FORMAT)
-            args.merge!({v: @version, publisher: @publisher_id, format: format})
-            response = NET::HTTP.getresponse(URI.parse(endpoint, {params: args}))
+            args.merge!({v: @version, publisher: @publisher, format: format})
+            response = RestClient.get endpoint, {:params => args}
             JSON.parse(response.to_s)
         end
 
