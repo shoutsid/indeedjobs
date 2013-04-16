@@ -1,11 +1,21 @@
 <h1 style="text-align: left">Jobs</h1>
-
+<div style="padding-left: 50px;">
 <%= form_for root_path, method: 'get' do %>
-	<%= text_field_tag :pull_jobs, params[:search] %>
-	<%= submit_tag "Search", disable_with: "Please wait...", name: nil %>
+	Search For:
+	<%= text_field_tag :query, params[:query] %>
+	Where:
+	<%= text_field_tag :location, params[:location] %>
+	<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
 <% end %>
-<% @jobs.each do |job| %>
-	<div class="content">
+<strong>In the Past 7 days</strong><br/>
+Ruby related: <%= @ruby_jobs %><br/>
+Rails related: <%= @rails_jobs %><br/>
+Admin related: <%= @admin_jobs%><br/>
+
+</div>
+<hr/>
+<% @recent_jobs.each do |job| %>
+	<div class="content" style="width: 90%; margin-left: 50px;">
 		Title: <%= job.jobtitle %> <br/>
 		Description: <%= raw job.description%> <br/>
 		Company: <%= job.company %><br/>
