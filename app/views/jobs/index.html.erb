@@ -1,7 +1,9 @@
+<h1 style="text-align: left">Jobs</h1>
 
-<%= @pull_jobs %>
-
-<h1>Jobs</h1>
+<%= form_for root_path, method: 'get' do %>
+	<%= text_field_tag :pull_jobs, params[:search] %>
+	<%= submit_tag "Search", disable_with: "Please wait...", name: nil %>
+<% end %>
 <% @jobs.each do |job| %>
 	<div class="content">
 		Title: <%= job.jobtitle %> <br/>
@@ -9,8 +11,8 @@
 		Company: <%= job.company %><br/>
 		City: <%= job.city %><br/>
 		Posted at: <%= time_ago_in_words(job.posted) %><br/>
-		link: <%= link_to "Find on Indeed", job.url %>
+		link: <%= link_to "Find on Indeed", job.url %><br/>
 		jobkey: <%= job.job_key %>
-</div>
-<p/>
+	</div>
+	<p/>
 <% end %>
