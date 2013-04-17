@@ -1,20 +1,167 @@
 <h1 style="text-align: left">Jobs</h1>
 <div style="padding-left: 50px;">
-<%= form_for root_path, method: 'get' do %>
-	Search For:
-	<%= text_field_tag :query, params[:query] %>
-	Where:
-	<%= text_field_tag :location, params[:location] %>
-	<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
-<% end %>
-<strong>In the Past 7 days</strong><br/>
-Ruby related: <%= @ruby_jobs %><br/>
-Rails related: <%= @rails_jobs %><br/>
-Admin related: <%= @admin_jobs%><br/>
+	<%= form_for root_path, method: 'get' do %>
+		Search For:
+		<%= text_field_tag :query, params[:query] %>
+		Where:
+		<%= text_field_tag :location, params[:location] %>
+		<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
+	<% end %>
+	<table style="text-align: center; border: 1px solid; display: inline-block;">
+		<thead>
+			<th>
+				<strong>In the Past </strong>
+			</th>
+			<th>
+				<strong>7 Days</strong>
+			</th>	
+			<th>
+				<strong>14 Days</strong>
+			</th>
+			<th>
+				<strong>1 Month</strong>
+			</th>
+		</thead>
+		<tbody style="margin: 10px;">
+			<tr>
+				<th>
+					Ruby related:
+				</th>	
 
+				<td>
+					<%= @recent_ruby_jobs %>
+				</td>
+				<td>
+					<%= @days14_ruby_jobs %>
+				</td>	
+				<td>
+					<%= @month1_ruby_jobs%>
+				</td>
+
+			</tr>
+			<tr>
+				<th>
+					Rails related:
+				</th>
+				<td>
+					<%= @recent_rails_jobs %>	
+				</td>
+				<td>
+					<%= @days14_rails_jobs %>	
+				</td>
+				<td>
+					<%= @month1_rails_jobs %>	
+				</td>
+
+			</tr>	
+			<tr>
+				<th>
+					Admin related:
+				</th>
+				<td>
+					<%= @recent_admin_jobs %>
+				</td>
+				<td>
+					<%= @days14_admin_jobs %>
+				</td>
+				<td>
+					<%= @month1_admin_jobs%>	
+				</td>
+				<td>
+				</td>
+
+			</tr>
+			<tr>
+				<th>
+					Total Jobs:
+				</th>
+				<td>
+					<%= @total_recent_jobs.size %>
+				</td>
+					<td>
+					<%= @days14_total_jobs %>
+				</td>
+
+				<td>
+					<%= @month1_total_jobs%>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<br/>
+
+	<table style="border: 1px solid;">
+		<tr>
+			<th>
+				Percentage
+			</th>
+			<th>
+				7 Days
+			</th>
+
+			<th>
+				14 Days
+			</th>
+
+			<th>
+				1 Month
+			</th>
+		</tr>
+		<tr>
+			<th>Ruby:</th>
+			<td>
+				<%= number_to_percentage(@recent_percent_is_ruby, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@days14_percent_is_ruby, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@month1_percent_is_ruby, precision: 1) %>
+			</td>
+			</tr>
+			<tr>
+			<th>Rails:</th>
+			<td>
+				<%= number_to_percentage(@recent_percent_is_rails, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@days14_percent_is_rails, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@month1_percent_is_rails, precision: 1) %>
+			</td>
+			</tr>
+			
+			<tr>
+			<th>Admin:</th>
+			<td>
+				<%= number_to_percentage(@recent_percent_is_admin, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@days14_percent_is_admin, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@month1_percent_is_admin, precision: 1) %>
+			</td>
+			</tr>
+			
+			<tr>
+			<th>Other:</th>
+			<td>
+				<%= number_to_percentage(@recent_percent_is_other, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@days14_percent_is_other, precision: 1) %>
+			</td>
+			<td>
+				<%= number_to_percentage(@month1_percent_is_other, precision: 1) %>
+			</td>
+		</tr>
+	</table>
 </div>
+
 <hr/>
-<% @recent_jobs.each do |job| %>
+<% @total_recent_jobs.each do |job| %>
 	<div class="content" style="width: 90%; margin-left: 50px;">
 		Title: <%= job.jobtitle %> <br/>
 		Description: <%= raw job.description%> <br/>
