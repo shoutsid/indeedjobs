@@ -3,7 +3,7 @@ require 'open-uri'
 class Jobs < ActiveRecord::Base
 	attr_accessible :city, :company, :description, :expired, :jobtitle, :posted, :radius, :url, :job_key
 
-	acts_as_xlsx
+	acts_as_xlsx 
 
 	def self.jobs(job, since=7.days.ago)
 		all_jobs_since(since).where('description ILIKE ? OR jobtitle ILIKE ?', "%#{job}%", "%#{job}%")
@@ -21,12 +21,24 @@ class Jobs < ActiveRecord::Base
 		tinyurl = open('http://tinyurl.com/api-create.php?url=' + url).read
 	end
 
-	def self.pull_jobs(query, location='horden')
+	def self.pull_jobs(query, location, country)
 		a = Indeed::Client.new(3095480858445677)
+		case country 
+		when 'England'
+			co = 'gb'
+		when 'United States'
+			co = 'us'
+		when 'Canada'
+			co = 'ca'
+
+		when 'Australia'
+			co = 'au'
+		end
+
 		params = {
 			q: "#{query}",
 			l: "#{location}",
-			co: 'gb',
+			co: "#{co}",
 			radius: '20',
 			limit: '1000',
 			userip: '0.0.0.0',

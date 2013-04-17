@@ -5,7 +5,7 @@ module JobsHelper
 
 		jobtypes.each { |jobtype| instance_variable_set("@recent_#{jobtype}_jobs", Jobs.jobs(jobtype, 7.days.ago).count) } 
 		jobtypes.each { |jobtype| instance_variable_set("@recent_percent_is_#{jobtype}", Jobs.percent_of_jobtype_since(jobtype, 7.days.ago)) } 
-		@total_recent_jobs = Jobs.all_jobs_since
+		@total_recent_jobs = Jobs.all_jobs_since.page(params[:page]).per(10)
 		@recent_percent_is_other = 100 - @recent_percent_is_ruby - @recent_percent_is_rails - @recent_percent_is_admin
 
 

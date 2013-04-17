@@ -3,9 +3,14 @@
 	<%= form_for root_path, method: 'get' do %>
 		Search For:
 		<%= text_field_tag :query, params[:query] %>
-		Where:
+		Town or Postcode:
 		<%= text_field_tag :location, params[:location] %>
+		Country:	
+		<%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
+
+
 		<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
+
 	<% end %>
 	<table style="text-align: center; border: 1px solid; display: inline-block;">
 		<thead>
@@ -161,6 +166,9 @@
 </div>
 
 <hr/>
+
+<%= paginate @total_recent_jobs %>
+
 <% @total_recent_jobs.each do |job| %>
 	<div class="content" style="width: 90%; margin-left: 50px;">
 		Title: <%= job.jobtitle %> <br/>
@@ -168,7 +176,7 @@
 		Company: <%= job.company %><br/>
 		City: <%= job.city %><br/>
 		Posted at: <%= time_ago_in_words(job.posted) %><br/>
-		link: <%= link_to "Find on Indeed", job.url %><br/>
+		link: <%= link_to "Find on Indeed", job.url, target: '_blank' %><br/>
 		jobkey: <%= job.job_key %>
 	</div>
 	<p/>
