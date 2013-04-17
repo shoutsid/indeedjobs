@@ -6,7 +6,7 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-#gem 'sqlite3'
+gem 'acts_as_xlsx'
 gem 'rest-client'
 
 group :assets do

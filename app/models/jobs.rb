@@ -3,6 +3,8 @@ require 'open-uri'
 class Jobs < ActiveRecord::Base
 	attr_accessible :city, :company, :description, :expired, :jobtitle, :posted, :radius, :url, :job_key
 
+	acts_as_xlsx
+
 	def self.jobs(job, since=7.days.ago)
 		all_jobs_since(since).where('description ILIKE ? OR jobtitle ILIKE ?', "%#{job}%", "%#{job}%")
 	end
@@ -25,7 +27,7 @@ class Jobs < ActiveRecord::Base
 			q: "#{query}",
 			l: "#{location}",
 			co: 'gb',
-			radius: '50',
+			radius: '20',
 			limit: '1000',
 			userip: '0.0.0.0',
 			useragent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)',
