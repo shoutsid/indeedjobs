@@ -16,5 +16,71 @@ Then visit http://localhost:3000
 
 And start typing away. If you wish to download the jobs which you have collected in spreadsheet format.
 Visit http://localhost:3000/jobs.xlsx
+...
+
+/If you would like to add more countries, go to /app/models/jobs.rb and add your country to the case switch. 
+Also make sure that you add it to the <%= select_tag "country", options_for_select(["foo", "bar"]) %>
+
+The country codes:
+
+
+Country	Country code
+United States	us
+Argentina	ar
+Australia	au
+Austria		at
+Bahrain		bh
+Belgium		be
+Brazil		br
+Canada		ca
+Chile		cl  
+China		cn
+Colombia	co
+Czech Republic	cz
+Denmark		dk
+Finland		fi
+France		fr
+Germany		de
+Greece		gr
+Hong Kong	hk
+Hungary		hu
+India		in
+Indonesia	id
+Ireland		ie
+Israel		il
+Italy		it
+Japan		jp
+Korea		kr
+Kuwait		kw
+Luxembourg	lu
+Malaysia	my
+Mexico		mx
+Netherlands	nl
+New Zealand	nz
+Norway		no
+Oman		om
+Pakistan	pk
+Peru		pe
+Philippines	ph
+Poland		pl
+Portugal	pt
+Qatar		qa
+Romania		ro
+Russia	  	ru
+Saudi Arabia	sa
+Singapore	sg
+South Africa	za
+Spain		es
+Sweden	  	se
+Switzerland	ch
+Taiwan	  	tw
+Turkey	  	tr
+United Arab Emirates	ae
+United Kingdom	gb
+Venezuela	ve
+
+
+=
+=
 
 == Contributions are always welcome 
