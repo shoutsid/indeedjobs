@@ -28,7 +28,7 @@ The country codes:
 Country	Country code
                                 United States	  us
                                 Argentina	      ar
-                                Australia       au
+                                Australia         au
                                 Austria		      at
                                 Bahrain   		  bh
                                 Belgium   		  be          
@@ -37,7 +37,7 @@ Country	Country code
                                 Chile	      	  cl
                                 China	      	  cn
                                 Colombia	      co
-                                Czech Republic	cz
+                                Czech Republic    cz
                                 Denmark		      dk
                                 Finland		      fi
                                 France		      fr
