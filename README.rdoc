@@ -1,16 +1,17 @@
 == Indeed.co.uk DataMining
 
 Personal use for datamining jobs in a 50 mile radius of my home town. 
-This leverages the Indeed api, json is used. because well I dislike xml :P
+This leverages the Indeed api, json is used
 
 == How to use
 
 Fill in your database details (I suggest postgresql, I can't say what will happen if you don't. Most likely failures with ILIKE)
 
-rake db:create
-rake db:migrate
+    rake db:create
+  
+    rake db:migrate
 
-rails server
+    rails server
 
 Then visit http://localhost:3000
 
@@ -25,62 +26,58 @@ The country codes:
 
 
 Country	Country code
-United States	us
-Argentina	ar
-Australia	au
-Austria		at
-Bahrain		bh
-Belgium		be
-Brazil		br
-Canada		ca
-Chile		cl  
-China		cn
-Colombia	co
-Czech Republic	cz
-Denmark		dk
-Finland		fi
-France		fr
-Germany		de
-Greece		gr
-Hong Kong	hk
-Hungary		hu
-India		in
-Indonesia	id
-Ireland		ie
-Israel		il
-Italy		it
-Japan		jp
-Korea		kr
-Kuwait		kw
-Luxembourg	lu
-Malaysia	my
-Mexico		mx
-Netherlands	nl
-New Zealand	nz
-Norway		no
-Oman		om
-Pakistan	pk
-Peru		pe
-Philippines	ph
-Poland		pl
-Portugal	pt
-Qatar		qa
-Romania		ro
-Russia	  	ru
-Saudi Arabia	sa
-Singapore	sg
-South Africa	za
-Spain		es
-Sweden	  	se
-Switzerland	ch
-Taiwan	  	tw
-Turkey	  	tr
-United Arab Emirates	ae
-United Kingdom	gb
-Venezuela	ve
-
-
-=
-=
+                                United States	  us
+                                Argentina	      ar
+                                Australia       au
+                                Austria		      at
+                                Bahrain   		  bh
+                                Belgium   		  be          
+                                Brazil	     	  br
+                                Canada    		  ca
+                                Chile	      	  cl
+                                China	      	  cn
+                                Colombia	      co
+                                Czech Republic	cz
+                                Denmark		      dk
+                                Finland		      fi
+                                France		      fr
+                                Germany		      de
+                                Greece		      gr
+                                Hong Kong	      hk
+                                Hungary	      	hu
+                                India	        	in  
+                                Indonesia	      id
+                                Ireland		      ie
+                                Israel	      	il
+                                Italy	        	it
+                                Japan		        jp
+                                Korea	        	kr
+                                Kuwait		      kw
+                                Luxembourg    	lu
+                                Malaysia	      my
+                                Mexico		      mx
+                                Netherlands	    nl
+                                New Zealand	    nz
+                                Norway		      no
+                                Oman		        om
+                                Pakistan	      pk
+                                Peru		        pe
+                                Philippines	    ph
+                                Poland		      pl
+                                Portugal	      pt
+                                Qatar		        qa
+                                Romania		      ro
+                                Russia	  	    ru
+                                Saudi Arabia	  sa
+                                Singapore	      sg
+                                South Africa	  za
+                                Spain		        es
+                                Sweden	  	    se
+                                Switzerland	    ch
+                                Taiwan	  	    tw
+                                Turkey	  	    tr
+                                United Arab Emirates	ae
+                                United Kingdom	gb                                
+                                Venezuela	      ve
 
 == Contributions are always welcome 
