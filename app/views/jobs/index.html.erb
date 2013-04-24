@@ -1,12 +1,14 @@
 <h1 style="text-align: left">Jobs</h1>
 <div style="padding-left: 50px;">
-	<%= form_for root_path, method: 'get' do %>
+	<%= form_for '' , method: 'get' do %>
 		Search For:
 		<%= text_field_tag :query, params[:query] %>
 		Town or Postcode:
 		<%= text_field_tag :location, params[:location] %>
 		Country:	
 		<%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
+    Radius to search(miles):
+    <%= select_tag :radius, options_for_select([ '10','15', '20', '25', '30', '40', '50', '100'], "20") %>
 
 
 		<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>

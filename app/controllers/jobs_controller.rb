@@ -4,8 +4,9 @@ class JobsController < ApplicationController
 		query = (params[:query])
 		location = (params[:location])
 		country = (params[:country])
+    radius = (params[:radius])
 
-			@pull_jobs = Jobs.pull_jobs(query, location, country)
+			@pull_jobs = Jobs.pull_jobs(query, location, country, radius)
 			set_variables
 			
 			respond_to do |format|
