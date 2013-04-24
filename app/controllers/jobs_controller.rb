@@ -7,7 +7,7 @@ class JobsController < ApplicationController
     radius = (params[:radius])
 
 			@pull_jobs = Jobs.pull_jobs(query, location, country, radius)
-			set_variables
+			variables
 			
 			respond_to do |format|
 				format.html

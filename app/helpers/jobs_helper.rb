@@ -1,24 +1,26 @@
 module JobsHelper
-	def set_variables
-		jobtypes = [ 'ruby', 'rails', 'admin' ]
+  def variables
+    jobtypes = [ 'ruby', 'rails', 'admin' ]
+    since = ['1 week', '2 weeks', '1 month']
+    since.each { |s| set_variables(jobtypes, s) }
+    @total_recent_jobs = Jobs.all_jobs_since.page(params[:page]).per(10)
+  end
 
-
-		jobtypes.each { |jobtype| instance_variable_set("@recent_#{jobtype}_jobs", Jobs.jobs(jobtype, 7.days.ago).count) } 
-		jobtypes.each { |jobtype| instance_variable_set("@recent_percent_is_#{jobtype}", Jobs.percent_of_jobtype_since(jobtype, 7.days.ago)) } 
-		@total_recent_jobs = Jobs.all_jobs_since.page(params[:page]).per(10)
-		@recent_percent_is_other = 100 - @recent_percent_is_ruby - @recent_percent_is_rails - @recent_percent_is_admin
-
-
-		jobtypes.each { |jobtype| instance_variable_set("@days14_#{jobtype}_jobs", Jobs.jobs(jobtype, 14.days.ago).count) } 
-		jobtypes.each { |jobtype| instance_variable_set("@days14_percent_is_#{jobtype}", Jobs.percent_of_jobtype_since(jobtype, 14.days.ago)) } 
-		@days14_total_jobs= Jobs.all_jobs_since(14.days.ago).count
-		@days14_percent_is_other = 100 - @days14_percent_is_ruby - @days14_percent_is_rails - @days14_percent_is_admin
-
-
-		jobtypes.each { |jobtype| instance_variable_set("@month1_#{jobtype}_jobs", Jobs.jobs(jobtype, 1.month.ago).count) } 
-		jobtypes.each { |jobtype| instance_variable_set("@month1_percent_is_#{jobtype}", Jobs.percent_of_jobtype_since(jobtype, 1.month.ago)) } 
-		@month1_total_jobs= Jobs.all_jobs_since(1.month.ago).count
-		@month1_percent_is_other = 100 - @month1_percent_is_ruby - @month1_percent_is_rails - @month1_percent_is_admin
-
-	end
+  private
+  def set_variables(jobtypes, since)
+    since = since.parameterize('_')
+    jobtypes.each { |jobtype| instance_variable_set("@#{jobtype}_jobs_#{since}", Jobs.jobs(jobtype, since_set(since)).count) } 
+    instance_variable_set("@total_jobs_#{since}", Jobs.all_jobs_since(since_set(since)).count)
+  end
+  
+  def since_set(since)
+    case 
+    when 'recent' || '7_days' || '1_week'
+      7.days.ago
+    when '14_days' || '2_weeks'
+      1.week.ago
+    when '1_month'
+      1.month.ago
+    end
+  end
 end

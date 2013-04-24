@@ -36,13 +36,13 @@
 				</th>	
 
 				<td>
-					<%= @recent_ruby_jobs %>
+					<%= @ruby_jobs_1_week%>
 				</td>
 				<td>
-					<%= @days14_ruby_jobs %>
+					<%= @ruby_jobs_2_weeks%>
 				</td>	
 				<td>
-					<%= @month1_ruby_jobs%>
+					<%= @ruby_jobs_1_month %>
 				</td>
 
 			</tr>
@@ -51,13 +51,13 @@
 					Rails related:
 				</th>
 				<td>
-					<%= @recent_rails_jobs %>	
+					<%= @rails_jobs_1_week %>	
 				</td>
 				<td>
-					<%= @days14_rails_jobs %>	
+					<%= @rails_jobs_2_weeks %>	
 				</td>
 				<td>
-					<%= @month1_rails_jobs %>	
+					<%= @rails_jobs_1_month %>	
 				</td>
 
 			</tr>	
@@ -66,13 +66,13 @@
 					Admin related:
 				</th>
 				<td>
-					<%= @recent_admin_jobs %>
+					<%= @admin_jobs_1_week %>
 				</td>
 				<td>
-					<%= @days14_admin_jobs %>
+					<%= @admin_jobs_2_weeks %>
 				</td>
 				<td>
-					<%= @month1_admin_jobs%>	
+					<%= @admin_jobs_1_month %>	
 				</td>
 				<td>
 				</td>
@@ -86,87 +86,16 @@
 					<%= @total_recent_jobs.size %>
 				</td>
 					<td>
-					<%= @days14_total_jobs %>
+					<%= @total_jobs_1_week %>
 				</td>
 
 				<td>
-					<%= @month1_total_jobs%>
+					<%= @total_jobs_2_weeks %>
 				</td>
 			</tr>
 		</tbody>
 	</table>
 	<br/>
-
-	<table style="border: 1px solid;">
-		<tr>
-			<th>
-				Percentage
-			</th>
-			<th>
-				7 Days
-			</th>
-
-			<th>
-				14 Days
-			</th>
-
-			<th>
-				1 Month
-			</th>
-		</tr>
-		<tr>
-			<th>Ruby:</th>
-			<td>
-				<%= number_to_percentage(@recent_percent_is_ruby, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@days14_percent_is_ruby, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@month1_percent_is_ruby, precision: 1) %>
-			</td>
-			</tr>
-			<tr>
-			<th>Rails:</th>
-			<td>
-				<%= number_to_percentage(@recent_percent_is_rails, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@days14_percent_is_rails, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@month1_percent_is_rails, precision: 1) %>
-			</td>
-			</tr>
-			
-			<tr>
-			<th>Admin:</th>
-			<td>
-				<%= number_to_percentage(@recent_percent_is_admin, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@days14_percent_is_admin, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@month1_percent_is_admin, precision: 1) %>
-			</td>
-			</tr>
-			
-			<tr>
-			<th>Other:</th>
-			<td>
-				<%= number_to_percentage(@recent_percent_is_other, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@days14_percent_is_other, precision: 1) %>
-			</td>
-			<td>
-				<%= number_to_percentage(@month1_percent_is_other, precision: 1) %>
-			</td>
-		</tr>
-	</table>
-</div>
-
 <hr/>
 
 <%= paginate @total_recent_jobs %>
