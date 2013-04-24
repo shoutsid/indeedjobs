@@ -14,10 +14,10 @@ module JobsHelper
   end
   
   def since_set(since)
-    case 
-    when 'recent' || '7_days' || '1_week'
+    case since
+    when 'recent','7_days','1_week'
       7.days.ago
-    when '14_days' || '2_weeks'
+    when '14_days','2_weeks'
       1.week.ago
     when '1_month'
       1.month.ago
