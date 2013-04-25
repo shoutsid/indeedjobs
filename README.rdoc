@@ -1,6 +1,6 @@
 == Indeed.co.uk DataMining
 
-Personal use for datamining jobs in a 50 mile radius of my home town. 
+Personal use for datamining jobs. 
 This leverages the Indeed api, json is used
 
 == How to use

@@ -21,9 +21,7 @@ class Jobs < ActiveRecord::Base
     indeed = Indeed::Client.new(3095480858445677)
     
     search = indeed.search(params(query, location, country, radius))
-    search["results"].each do |job|
-      save_job(job) unless exists?(job_key: job["jobkey"])
-    end
+    search["results"].each {|job| save_job(job) unless exists?(job_key: job["jobkey"])}
   end
 
   private

@@ -1,10 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'kaminari'
 gem 'pg'
 gem 'acts_as_xlsx'
@@ -19,25 +15,21 @@ group :assets do
 end
 
 group :development do
-  gem 'guard'
   gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :test, :development do
+  gem 'guard'
+  gem 'rb-inotify', '~> 0.9'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'ruby-prof'
 end
 
 gem 'jquery-rails'
 gem 'thin'
-
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-#
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

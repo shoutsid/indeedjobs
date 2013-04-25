@@ -14,8 +14,8 @@
 ActiveRecord::Schema.define(:version => 20130409165037) do
 
   create_table "jobs", :force => true do |t|
-    t.string   "job_key"
     t.integer  "radius"
+    t.string   "job_key"
     t.string   "jobtitle"
     t.string   "company"
     t.string   "city"

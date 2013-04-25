@@ -1,114 +1,114 @@
 <h1 style="text-align: left">Jobs</h1>
 <div style="padding-left: 50px;">
-	<%= form_for '' , method: 'get' do %>
-		Search For:
-		<%= text_field_tag :query, params[:query] %>
-		Town or Postcode:
-		<%= text_field_tag :location, params[:location] %>
-		Country:	
-		<%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
+  <%= form_for '' , method: 'get' do %>
+    Search For:
+    <%= text_field_tag :query, params[:query] %>
+    Town or Postcode:
+    <%= text_field_tag :location, params[:location] %>
+    Country:	
+    <%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
     Radius to search(miles):
     <%= select_tag :radius, options_for_select([ '10','15', '20', '25', '30', '40', '50', '100'], "20") %>
 
 
-		<%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
+    <%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
 
-	<% end %>
-	<table style="text-align: center; border: 1px solid; display: inline-block;">
-		<thead>
-			<th>
-				<strong>In the Past </strong>
-			</th>
-			<th>
-				<strong>7 Days</strong>
-			</th>	
-			<th>
-				<strong>14 Days</strong>
-			</th>
-			<th>
-				<strong>1 Month</strong>
-			</th>
-		</thead>
-		<tbody style="margin: 10px;">
-			<tr>
-				<th>
-					Ruby related:
-				</th>	
+  <% end %>
+  <table style="text-align: center; border: 1px solid; display: inline-block;">
+    <thead>
+      <th>
+        <strong>In the Past </strong>
+      </th>
+      <th>
+        <strong>7 Days</strong>
+      </th>	
+      <th>
+        <strong>14 Days</strong>
+      </th>
+      <th>
+        <strong>1 Month</strong>
+      </th>
+    </thead>
+    <tbody style="margin: 10px;">
+      <tr>
+        <th>
+          Ruby related:
+        </th>	
 
-				<td>
-					<%= @ruby_jobs_1_week%>
-				</td>
-				<td>
-					<%= @ruby_jobs_2_weeks%>
-				</td>	
-				<td>
-					<%= @ruby_jobs_1_month %>
-				</td>
+        <td>
+          <%= @ruby_jobs_1_week%>
+        </td>
+        <td>
+          <%= @ruby_jobs_2_weeks%>
+        </td>	
+        <td>
+          <%= @ruby_jobs_1_month %>
+        </td>
 
-			</tr>
-			<tr>
-				<th>
-					Rails related:
-				</th>
-				<td>
-					<%= @rails_jobs_1_week %>	
-				</td>
-				<td>
-					<%= @rails_jobs_2_weeks %>	
-				</td>
-				<td>
-					<%= @rails_jobs_1_month %>	
-				</td>
+      </tr>
+      <tr>
+        <th>
+          Rails related:
+        </th>
+        <td>
+          <%= @rails_jobs_1_week %>	
+        </td>
+        <td>
+          <%= @rails_jobs_2_weeks %>	
+        </td>
+        <td>
+          <%= @rails_jobs_1_month %>	
+        </td>
 
-			</tr>	
-			<tr>
-				<th>
-					Admin related:
-				</th>
-				<td>
-					<%= @admin_jobs_1_week %>
-				</td>
-				<td>
-					<%= @admin_jobs_2_weeks %>
-				</td>
-				<td>
-					<%= @admin_jobs_1_month %>	
-				</td>
-				<td>
-				</td>
+      </tr>	
+      <tr>
+        <th>
+          Admin related:
+        </th>
+        <td>
+          <%= @admin_jobs_1_week %>
+        </td>
+        <td>
+          <%= @admin_jobs_2_weeks %>
+        </td>
+        <td>
+          <%= @admin_jobs_1_month %>	
+        </td>
+        <td>
+        </td>
 
-			</tr>
-			<tr>
-				<th>
-					Total Jobs:
-				</th>
-				<td>
-					<%= @total_jobs_1_week %>
-				</td>
-					<td>
-					<%= @total_jobs_2_weeks %>
-				</td>
+      </tr>
+      <tr>
+        <th>
+          Total Jobs:
+        </th>
+        <td>
+          <%= @total_jobs_1_week %>
+        </td>
+        <td>
+          <%= @total_jobs_2_weeks %>
+        </td>
 
-				<td>
-					<%= @total_jobs_1_month %>
-				</td>
-			</tr>
-		</tbody>
-	</table>
-	<br/>
-<hr/>
+        <td>
+          <%= @total_jobs_1_month %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <hr/>
 
-<%= paginate @total_recent_jobs %>
+  <%= paginate @total_recent_jobs %>
 
-<% @total_recent_jobs.each do |job| %>
-	<div class="content" style="width: 90%; margin-left: 50px;">
-		Title: <%= job.jobtitle %> <br/>
-		Description: <%= raw job.description%> <br/>
-		Company: <%= job.company %><br/>
-		City: <%= job.city %><br/>
-		Posted at: <%= time_ago_in_words(job.posted) %><br/>
-		link: <%= link_to "Find on Indeed", job.url, target: '_blank' %><br/>
-		jobkey: <%= job.job_key %>
-	</div>
-	<p/>
-<% end %>
+  <% @total_recent_jobs.each do |job| %>
+    <div class="content" style="width: 90%; margin-left: 50px;">
+      Title: <%= job.jobtitle %> <br/>
+      Description: <%= raw job.description%> <br/>
+      Company: <%= job.company %><br/>
+      City: <%= job.city %><br/>
+      Posted at: <%= time_ago_in_words(job.posted) %><br/>
+      link: <%= link_to "Find on Indeed", job.url, target: '_blank' %><br/>
+      jobkey: <%= job.job_key %>
+    </div>
+    <p/>
+  <% end %>

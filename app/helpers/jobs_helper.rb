@@ -1,5 +1,5 @@
 module JobsHelper
-  def variables
+  def Variables
     jobtypes = [ 'ruby', 'rails', 'admin' ]
     since = ['1 week', '2 weeks', '1 month']
     since.each { |s| set_variables(jobtypes, s) }
