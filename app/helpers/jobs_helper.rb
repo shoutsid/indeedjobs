@@ -9,8 +9,8 @@ module JobsHelper
   private
   def set_variables(jobtypes, since)
     since = since.parameterize('_')
-    jobtypes.each { |jobtype| instance_variable_set("@#{jobtype}_jobs_#{since}", Jobs.jobs(jobtype, since_set(since)).count) } 
-    instance_variable_set("@total_jobs_#{since}", Jobs.all_jobs_since(since_set(since)).count)
+    jobtypes.each { |jobtype| instance_variable_set("@#{jobtype}_jobs_#{since}", Jobs.jobs(jobtype, since_set(since))) } 
+    instance_variable_set("@total_jobs_#{since}", Jobs.all_jobs_since(since_set(since)))
   end
   
   def since_set(since)
@@ -18,7 +18,7 @@ module JobsHelper
     when 'recent','7_days','1_week'
       7.days.ago
     when '14_days','2_weeks'
-      1.week.ago
+      2.weeks.ago
     when '1_month'
       1.month.ago
     end

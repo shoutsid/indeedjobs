@@ -11,9 +11,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xlsx {
-        send_data Jobs.to_xlsx.to_stream.read, filename: "jobs-#{Time.now}.xlsx", type: "application/vnd.openxmlformates-officedocument.spreadsheetml.sheet"
-      }
+      format.xlsx { send_data Jobs.to_xlsx.to_stream.read, filename: "jobs-#{Time.now}.xlsx" }
     end
 
   end

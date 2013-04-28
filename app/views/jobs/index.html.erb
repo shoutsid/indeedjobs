@@ -36,13 +36,13 @@
         </th>	
 
         <td>
-          <%= @ruby_jobs_1_week%>
+          <%= @ruby_jobs_1_week.count %>
         </td>
         <td>
-          <%= @ruby_jobs_2_weeks%>
+          <%= @ruby_jobs_2_weeks.count %>
         </td>	
         <td>
-          <%= @ruby_jobs_1_month %>
+          <%= @ruby_jobs_1_month.count %>
         </td>
 
       </tr>
@@ -51,13 +51,13 @@
           Rails related:
         </th>
         <td>
-          <%= @rails_jobs_1_week %>	
+          <%= link_to @rails_jobs_1_week.count %>	
         </td>
         <td>
-          <%= @rails_jobs_2_weeks %>	
+          <%= @rails_jobs_2_weeks.count %>	
         </td>
         <td>
-          <%= @rails_jobs_1_month %>	
+          <%= @rails_jobs_1_month.count %>	
         </td>
 
       </tr>	
@@ -66,13 +66,13 @@
           Admin related:
         </th>
         <td>
-          <%= @admin_jobs_1_week %>
+          <%= @admin_jobs_1_week.count %>
         </td>
         <td>
-          <%= @admin_jobs_2_weeks %>
+          <%= @admin_jobs_2_weeks.count %>
         </td>
         <td>
-          <%= @admin_jobs_1_month %>	
+          <%= @admin_jobs_1_month.count %>	
         </td>
         <td>
         </td>
@@ -83,22 +83,25 @@
           Total Jobs:
         </th>
         <td>
-          <%= @total_jobs_1_week %>
+          <%= @total_jobs_1_week.count %>
         </td>
         <td>
-          <%= @total_jobs_2_weeks %>
+          <%= @total_jobs_2_weeks.count %>
         </td>
 
         <td>
-          <%= @total_jobs_1_month %>
+          <%= @total_jobs_1_month.count %>
         </td>
       </tr>
     </tbody>
   </table>
   <br/>
+  <%= link_to "<button>Download Jobs(xlsx)</button>".html_safe , url_for(:format=>"xlsx") %>
+</div>
   <hr/>
 
   <%= paginate @total_recent_jobs %>
+
 
   <% @total_recent_jobs.each do |job| %>
     <div class="content" style="width: 90%; margin-left: 50px;">
