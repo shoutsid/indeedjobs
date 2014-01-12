@@ -1,0 +1,54 @@
+/*
+ * $FONTS
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300);
+@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:700);
+
+/*
+ * $VARIABLES
+ */
+
+$dark-grey: #232323;
+$yanone: 'Yanone Kaffeesatz', sans-serif;
+$lobster: 'Lobster', cursive;
+$blue-button: #3e677c;
+$dark-blue: #20292e;
+$background-blue: #314c5a;
+$light-blue: #f2f7fa;
+
+/*
+$MIXINS
+ */
+
+@mixin border-radius($topleft,$topright,$bottomleft,$bottomright) {
+  -webkit-border-top-left-radius: $topleft;
+  -webkit-border-top-right-radius: $topright;
+  -webkit-border-bottom-right-radius: $bottomleft;
+  -webkit-border-bottom-left-radius: $bottomright;
+  -moz-border-radius-topleft: $topleft;
+  -moz-border-radius-topright: $topright;
+  -moz-border-radius-bottomright: $bottomleft;
+  -moz-border-radius-bottomleft: $bottomright;
+  border-top-left-radius: $topleft;
+  border-top-right-radius: $topright;
+  border-bottom-right-radius: $bottomleft;
+  border-bottom-left-radius: $bottomright;
+}
+
+@mixin shadow($horizontal, $vertical, $blur, $spread, $color) {
+  -webkit-box-shadow: $horizontal $vertical $blur $spread $color;
+  box-shadow: $horizontal $vertical $blur $spread $color;
+}
+
+/* opaque mixin */
+@mixin opaque($opacity,$opacityDecimal){
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=$opacity)";
+  filter: alpha(opacity=$opacity);
+  -moz-opacity:$opacityDecimal;
+  -khtml-opacity: $opacityDecimal;
+  opacity: $opacityDecimal;
+}
+

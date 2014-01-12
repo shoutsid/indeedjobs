@@ -1,3 +1,52 @@
 // Place all the styles related to the jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "shared.scss";
+
+body{
+  background-color: #E2F0F1;
+
+  .grid{
+    @include border-radius(8px, 8px, 8px,8px);
+    background-color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+
+    .border{
+      border-top: 2px solid black;
+    }
+
+    .download{
+      margin-top: 20px;
+    }
+
+    .form{
+      margin-top: 25px;
+    }
+
+    .pagination{
+      text-align: center;
+    }
+
+    .title{
+      margin-top: 20px;
+    }
+
+    .results{
+      h2{
+        font-weight: bold;
+      }
+
+      .c4{
+        border-right: 1px solid black;
+      }
+
+      .result{
+        border: 1px solid grey;
+        margin: 10px;
+        padding: 5px;
+      }
+    }
+  }
+}

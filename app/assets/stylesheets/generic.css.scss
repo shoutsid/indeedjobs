@@ -1,0 +1,354 @@
+/*
++align
+For aligning text
+*/
+.calign {
+  text-align: center;
+}
+.lalign {
+  text-align: left;
+}
+.ralign {
+  text-align: right;
+}
+.jalign {
+  text-align: justify;
+}
+.valign-top {
+  vertical-align: top;
+}
+.valign-middle {
+  vertical-align: middle;
+}
+.valign-bottom {
+  vertical-align: bottom;
+}
+
+.mauto {
+  margin: 0 auto;
+}
+
+/*
++text, +bold, +italic, +font-size
+Font styles
+*/
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.no-ul {
+  text-decoration:none;
+}
+
+.hidden {
+  display:none;
+}
+.vsmall {
+  font-size:0.8em;
+}
+.small {
+  font-size:0.85em;
+}
+.large {
+  font-size:1.1em;
+}
+.vlarge {
+  font-size:1.3em;
+}
+.huge {
+  font-size: 2em !important;
+}
+.mhuge {
+  font-size: 3em !important;
+}
+.vhuge {
+  font-size: 4em !important;
+}
+.vvhuge {
+  font-size: 5em !important;
+}
+
+/*
++float, +clear
+*/
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+/*
++click, +cursor
+*/
+.clickable {
+  cursor: pointer;
+}
+
+/*
++margin
+*/
+.default-marg {
+  margin: auto;
+}
+.tiny-marg {
+  margin: 0.1em;
+}
+.thin-marg {
+  margin: 0.3em;
+}
+.med-marg {
+  margin: 0.5em;
+}
+.thick-marg {
+  margin: 1em;
+}
+.vthick-marg {
+  margin: 1.5em;
+}
+.thick-left-marg {
+  margin-left: 1em;
+}
+.thick-right-marg {
+  margin-right: 1em;
+}
+.huge-left-marg {
+  margin-left: 3.5em;
+}
+/*
++vertical-margin
+*/
+.tiny-vmarg {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+.thin-vmarg {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+.med-vmarg {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.thick-vmarg {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.small-tmarg {
+  margin-top: 0.4em;
+}
+
+.med-tmarg {
+  margin-top: 0.5em;
+}
+
+.thick-tmarg {
+  margin-top: 1em;
+}
+
+.sthick-tmarg {
+  margin-top: 1.6em;
+}
+
+.mthick-tmarg {
+  margin-top: 2em;
+}
+
+.vthick-tmarg {
+  margin-top: 3em;
+}
+
+.thin-tpad {
+  padding-top: 0.5em;
+}
+/*
++horizontal-margin
+*/
+.thin-hmarg {
+  margin-right: 0.3em;
+  margin-left: 0.3em;
+}
+.med-hmarg {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+.med-lmarg {
+  margin-left: 0.5em;
+}
+.thick-hmarg {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/*
++padding
+*/
+.thin-pad {
+  padding: 0.4em;
+}
+.small-pad {
+  padding: 0.55em;
+}
+.med-pad {
+  padding: 0.7em;
+}
+.thick-pad {
+  padding: 1.5em;
+}
+.vthick-pad {
+  padding: 2em;
+}
+
+/*
++vertical-padding
+*/
+.tiny-vpad {
+  padding-top: 0.1em;
+}
+.thin-vpad {
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+.med-vpad {
+  padding-top: 0.7em;
+  padding-bottom: 0.7em;
+}
+.thick-vpad {
+  padding-top: 1.5em;
+  padding-top: 1.5em;
+}
+/*
++horizontal-padding
+*/
+.tiny-hpad {
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+}
+.thin-hpad {
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+.med-hpad {
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+}
+.thick-hpad {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+/*
++separators,+dividers
+*/
+.divider {
+  border-top-width: 1px;
+  margin: 1em 0;
+ }
+
+.spacer {
+  height: 1em;
+  display: block;
+}
+.big-spacer {
+  height: 2.5em;
+  display: block;
+}
+
+/*
++rounded,+corners
+*/
+.rc {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.rc-light {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.rc-heavy {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.rc-vheavy {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.block {
+  display: block;
+}
+
+/*
++line-height
+*/
+.lh-double {
+  line-height: 2em;
+}
+.lh-more {
+  line-height: 1.5em;
+}
+.lh-less {
+  line-height: 1.2em;
+}
+
+/*
++dl, +dt, +dd
+*/
+dt, dd {
+  display: inline;
+}
+/*
++list, +ordered-list
+*/
+ol {
+  margin: 0.5em 0 1em 2em;
+}
+ol li {
+  margin: 0.5em 0;
+}
+
+.wtext {
+  color: #FFF;
+}
+
+
+table {
+  margin-top:20px;
+  width: 100%;
+    text-align:center;
+  th {
+    font-weight:bold;
+    border-bottom:1px solid #ddd;
+    padding-bottom:10px;
+  }
+  td {
+    padding:5px 10px;
+    border-bottom:1px solid #ddd;
+    &.over {
+      color:red;
+    }
+    &.actions {
+      a {
+        display:inline-block;
+        img {
+          position:relative;
+          top:5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="border"></div>
+
+<div class="row">
+  <div class="c12 calign title">
+    <h1>Recent Jobs</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="pagination">
+    <%= paginate @total_recent_jobs %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="c12">
+    <div class="results">
+      <% @total_recent_jobs.each do |job| %>
+        <h2><%= job.jobtitle %></h2>
+        <div class="result">
+          <div class="row">
+            <div class="c4">
+              <ul>
+                <li>At: <%= job.company %></li>
+                <li>In: <%= job.city %></li>
+                <li>Posted: <%= time_ago_in_words(job.posted) %> ago</li>
+                <li>Jobkey: <%= job.job_key %></li>
+              </ul>
+            </div>
+
+            <div class="c8">
+              <p><%= raw job.description %></p>
+              <%= link_to "Find on Indeed", job.url, target: '_blank' %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="pagination">
+    <%= paginate @total_recent_jobs %>
+  </div>
+</div>

@@ -1,117 +1,132 @@
-<h1 style="text-align: left">Jobs</h1>
-<div style="padding-left: 50px;">
-  <%= form_for '' , method: 'get' do %>
-    Search For:
-    <%= text_field_tag :query, params[:query] %>
-    Town or Postcode:
-    <%= text_field_tag :location, params[:location] %>
-    Country:	
-    <%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
-    Radius to search(miles):
-    <%= select_tag :radius, options_for_select([ '10','15', '20', '25', '30', '40', '50', '100'], "20") %>
+<div class="row">
+  <div class="c6">
+    <div class="form">
+      <%= form_for '' , method: 'get' do %>
 
+        <div class="row">
+          <div class="c6">
+            <label>Search For:</label>
+          </div>
+          <div class="c6">
+            <%= text_field_tag :query, params[:query] %>
+          </div>
+        </div>
 
-    <%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
+        <div class="row">
+          <div class="c6">
+            <label>Town or Postcode:</label>
+          </div>
 
-  <% end %>
-  <table style="text-align: center; border: 1px solid; display: inline-block;">
-    <thead>
-      <th>
-        <strong>In the Past </strong>
-      </th>
-      <th>
-        <strong>7 Days</strong>
-      </th>	
-      <th>
-        <strong>14 Days</strong>
-      </th>
-      <th>
-        <strong>1 Month</strong>
-      </th>
-    </thead>
-    <tbody style="margin: 10px;">
-      <tr>
-        <th>
-          Ruby related:
-        </th>	
+          <div class="c6">
+            <%= text_field_tag :location, params[:location] %>
+          </div>
+        </div>
 
-        <td>
-          <%= @ruby_jobs_1_week.count %>
-        </td>
-        <td>
-          <%= @ruby_jobs_2_weeks.count %>
-        </td>	
-        <td>
-          <%= @ruby_jobs_1_month.count %>
-        </td>
+        <div class="row">
+          <div class="c6">
+            <label>Country:</label>
+          </div>
+          <div class="c6">
+            <%= select_tag "country", options_for_select([ "England", "United States", "Canada", "Australia"], "England") %>
+          </div>
+        </div>
 
-      </tr>
-      <tr>
-        <th>
-          Rails related:
-        </th>
-        <td>
-          <%= link_to @rails_jobs_1_week.count %>	
-        </td>
-        <td>
-          <%= @rails_jobs_2_weeks.count %>	
-        </td>
-        <td>
-          <%= @rails_jobs_1_month.count %>	
-        </td>
+        <div class="row">
+          <div class="c6">
+            <label>Radius to search(miles):</label>
+          </div>
+          <div class="c6">
+            <%= select_tag :radius, options_for_select([ '10','15', '20', '25', '30', '40', '50', '100'], "20") %>
+          </div>
+        </div>
 
-      </tr>	
-      <tr>
-        <th>
-          Admin related:
-        </th>
-        <td>
-          <%= @admin_jobs_1_week.count %>
-        </td>
-        <td>
-          <%= @admin_jobs_2_weeks.count %>
-        </td>
-        <td>
-          <%= @admin_jobs_1_month.count %>	
-        </td>
-        <td>
-        </td>
+        <div class="spacer"><!-- spacer --></div>
+        <div class="row">
+          <div class="c12 calign">
+            <%= submit_tag "Collect", disable_with: "Please wait...", name: nil %>
+          </div>
 
-      </tr>
-      <tr>
-        <th>
-          Total Jobs:
-        </th>
-        <td>
-          <%= @total_jobs_1_week.count %>
-        </td>
-        <td>
-          <%= @total_jobs_2_weeks.count %>
-        </td>
-
-        <td>
-          <%= @total_jobs_1_month.count %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <br/>
-  <%= link_to "<button>Download Jobs(xlsx)</button>".html_safe , url_for(:format=>"xlsx") %>
-</div>
-  <hr/>
-
-  <%= paginate @total_recent_jobs %>
-
-
-  <% @total_recent_jobs.each do |job| %>
-    <div class="content" style="width: 90%; margin-left: 50px;">
-      Title: <%= job.jobtitle %> <br/>
-      Description: <%= raw job.description%> <br/>
-      Company: <%= job.company %><br/>
-      City: <%= job.city %><br/>
-      Posted at: <%= time_ago_in_words(job.posted) %><br/>
-      link: <%= link_to "Find on Indeed", job.url, target: '_blank' %><br/>
-      jobkey: <%= job.job_key %>
+        </div>
+      <% end %>
     </div>
-    <p/>
-  <% end %>
+  </div>
+
+  <div class="c6">
+    <div class="stats">
+      <table>
+        <thead>
+          <th>
+            <strong>In the Past </strong>
+          </th>
+          <th>
+            <strong>7 Days</strong>
+          </th>
+          <th>
+            <strong>14 Days</strong>
+          </th>
+          <th>
+            <strong>1 Month</strong>
+          </th>
+        </thead>
+
+        <tbody style="margin: 10px;">
+          <tr>
+            <th>
+              Retail:
+            </th>
+            <td>
+              <%= @retail_jobs_1_week.count %>
+            </td>
+            <td>
+              <%= @retail_jobs_2_weeks.count %>
+            </td>
+            <td>
+              <%= @retail_jobs_1_month.count %>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              Admin:
+            </th>
+            <td>
+              <%= @admin_jobs_1_week.count %>
+            </td>
+            <td>
+              <%= @admin_jobs_2_weeks.count %>
+            </td>
+            <td>
+              <%= @admin_jobs_1_month.count %>
+            </td>
+            <td>
+            </td>
+          </tr>
+
+          <tr>
+            <th>
+              Total Jobs:
+            </th>
+            <td>
+              <%= @total_jobs_1_week.count %>
+            </td>
+            <td>
+              <%= @total_jobs_2_weeks.count %>
+            </td>
+
+            <td>
+              <%= @total_jobs_1_month.count %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="c12 calign download">
+          <%= link_to '<button>Download all searched jobs(xlsx)</button>'.html_safe , url_for(format: 'xlsx') %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'results' %>
